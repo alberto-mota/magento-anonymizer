@@ -82,52 +82,52 @@ if [[ "$ANONYMIZE" == "y" || "$ANONYMIZE" == "Y" || -z "$ANONYMIZE" ]]; then
   $DBCALL "UPDATE customer_address_entity SET telephone='123-456-7890'"
 
   # customer
-  $DBCALL "UPDATE customer_entity SET email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE customer_entity SET email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
   $DBCALL "UPDATE customer_entity SET firstname=CONCAT('firstname ', entity_id)"
   $DBCALL "UPDATE customer_entity SET middlename=''"
   $DBCALL "UPDATE customer_entity SET lastname=CONCAT('lastname ', entity_id)"
-  $DBCALL "UPDATE customer_entity SET password_hash=MD5(CONCAT('dev_',entity_id,'@anonymous_email.com'))"
+  $DBCALL "UPDATE customer_entity SET password_hash=MD5(CONCAT('dev_',entity_id,'@anonymousemail.com'))"
 
   # credit memo
   $DBCALL "UPDATE sales_creditmemo_grid SET billing_name='Demo User'"
   $DBCALL "UPDATE sales_creditmemo_grid SET customer_name='Demo User'"
-  $DBCALL "UPDATE sales_creditmemo_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE sales_creditmemo_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
   $DBCALL "UPDATE magento_sales_creditmemo_grid_archive SET billing_name='Demo User'"
   $DBCALL "UPDATE magento_sales_creditmemo_grid_archive SET customer_name='Demo User'"
-  $DBCALL "UPDATE magento_sales_creditmemo_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE magento_sales_creditmemo_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
 
   # invoices
   $DBCALL "UPDATE sales_invoice_grid SET billing_name='Demo User'"
   $DBCALL "UPDATE sales_invoice_grid SET customer_name='Demo User'"
-  $DBCALL "UPDATE sales_invoice_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE sales_invoice_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
   $DBCALL "UPDATE magento_sales_invoice_grid_archive SET billing_name='Demo User'"
   $DBCALL "UPDATE magento_sales_invoice_grid_archive SET customer_name='Demo User'"
-  $DBCALL "UPDATE magento_sales_invoice_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE magento_sales_invoice_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
 
   # shipments
   $DBCALL "UPDATE sales_shipment_grid SET billing_name='Demo User'"
   $DBCALL "UPDATE sales_shipment_grid SET shipping_name='Demo User'"
   $DBCALL "UPDATE sales_shipment_grid SET customer_name='Demo User'"
-  $DBCALL "UPDATE sales_shipment_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE sales_shipment_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
   $DBCALL "UPDATE magento_sales_shipment_grid_archive SET billing_name='Demo User'"
   $DBCALL "UPDATE magento_sales_shipment_grid_archive SET shipping_name='Demo User'"
   $DBCALL "UPDATE magento_sales_shipment_grid_archive SET customer_name='Demo User'"
-  $DBCALL "UPDATE magento_sales_shipment_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE magento_sales_shipment_grid_archive SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com')"
 
   # quotes
-  $DBCALL "UPDATE quote SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com'), customer_firstname='Demo', customer_lastname='User', customer_middlename='Dev', remote_ip='192.168.1.1', password_hash=NULL"
-  $DBCALL "UPDATE quote_address SET firstname='Demo', lastname='User', company=NULL, telephone=CONCAT('0123-4567', address_id), street=CONCAT('Devstreet ',address_id), email=CONCAT('dev_',address_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE quote SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com'), customer_firstname='Demo', customer_lastname='User', customer_middlename='Dev', remote_ip='192.168.1.1', password_hash=NULL"
+  $DBCALL "UPDATE quote_address SET firstname='Demo', lastname='User', company=NULL, telephone=CONCAT('0123-4567', address_id), street=CONCAT('Devstreet ',address_id), email=CONCAT('dev_',address_id,'@anonymousemail.com')"
 
   # orders
-  $DBCALL "UPDATE sales_order SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com'), customer_firstname='Demo', customer_lastname='User', customer_middlename='Dev'"
-  $DBCALL "UPDATE sales_order_address SET email=CONCAT('dev_',entity_id,'@anonymous_email.com'), firstname='Demo', lastname='User', company=NULL, telephone=CONCAT('0123-4567', entity_id), street=CONCAT('Devstreet ',entity_id)"
-  $DBCALL "UPDATE sales_order_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymous_email.com'), shipping_name='Demo D. User', billing_name='Demo D. User'"
+  $DBCALL "UPDATE sales_order SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com'), customer_firstname='Demo', customer_lastname='User', customer_middlename='Dev'"
+  $DBCALL "UPDATE sales_order_address SET email=CONCAT('dev_',entity_id,'@anonymousemail.com'), firstname='Demo', lastname='User', company=NULL, telephone=CONCAT('0123-4567', entity_id), street=CONCAT('Devstreet ',entity_id)"
+  $DBCALL "UPDATE sales_order_grid SET customer_email=CONCAT('dev_',entity_id,'@anonymousemail.com'), shipping_name='Demo D. User', billing_name='Demo D. User'"
 
   # # payments
   $DBCALL "UPDATE sales_order_payment SET additional_data=NULL, additional_information=NULL"
 
   # # newsletter
-  $DBCALL "UPDATE newsletter_subscriber SET subscriber_email=CONCAT('dev_newsletter_',subscriber_id,'@anonymous_email.com')"
+  $DBCALL "UPDATE newsletter_subscriber SET subscriber_email=CONCAT('dev_newsletter_',subscriber_id,'@anonymousemail.com')"
 else
   ANONYMIZE="n"
 fi
